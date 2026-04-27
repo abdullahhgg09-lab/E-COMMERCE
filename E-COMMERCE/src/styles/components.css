@@ -64,12 +64,12 @@
   
   /* Drawer menu */
   .navbar-links {
-    position: fixed; top: 0; right: 0; bottom: 0; width: 80%; max-width: 300px;
+    position: fixed; top: 0; right: 0; height: 100vh; width: 85%; max-width: 320px;
     background: var(--bg-card); flex-direction: column;
     padding: 0; gap: 0; transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: -10px 0 30px rgba(0,0,0,0.2);
-    z-index: 2000; overflow-y: auto;
+    transition: transform 0.3s ease-out;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+    z-index: 9999; overflow-y: auto;
     visibility: hidden; display: flex;
   }
   .navbar-links.active { transform: translateX(0); visibility: visible; }
@@ -82,9 +82,10 @@
   .close-menu-btn { background: none; border: none; font-size: 1.5rem; color: var(--text-primary); }
 
   .navbar-links a, .nav-logout-btn { 
-    width: 100%; padding: 1.25rem 1.5rem; font-size: 1.05rem; 
+    width: 100%; padding: 1.25rem 2rem; font-size: 1.1rem; 
     border-bottom: 1px solid var(--border); justify-content: flex-start;
     border-radius: 0; margin: 0;
+    color: var(--text-primary);
   }
   
   .navbar-actions { gap: 0.25rem; }

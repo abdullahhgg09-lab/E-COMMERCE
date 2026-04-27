@@ -2,7 +2,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { useTheme } from '../context/ThemeContext';
-import { useState } from 'react';
+import { useTheme } from '../context/ThemeContext';
+import { useState, useEffect } from 'react';
 import { FiShoppingCart, FiUser, FiMenu, FiX, FiSearch, FiLogOut, FiGrid, FiSun, FiMoon } from 'react-icons/fi';
 
 const Navbar = () => {
@@ -12,6 +13,15 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [menuOpen]);
 
   const handleSearch = (e) => {
     e.preventDefault();

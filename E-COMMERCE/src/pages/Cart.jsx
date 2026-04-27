@@ -23,7 +23,7 @@ const Cart = () => {
         <div className="cart-items">
           {items.map(item => {
             const imageUrl = item.images && item.images.length > 0
-              ? `http://localhost:5000${item.images[0]}`
+              ? (item.images[0].startsWith('http') ? item.images[0] : `https://ecommerce-backend-ecru-two.vercel.app${item.images[0]}`)
               : 'https://placehold.co/120x120/1e293b/94a3b8?text=No+Image';
 
             return (

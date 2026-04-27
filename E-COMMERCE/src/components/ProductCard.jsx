@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
   };
 
   const imageUrl = product.images && product.images.length > 0
-    ? `http://localhost:5000${product.images[0]}`
+    ? (product.images[0].startsWith('http') ? product.images[0] : `https://ecommerce-backend-ecru-two.vercel.app${product.images[0]}`)
     : 'https://placehold.co/400x400/1e293b/94a3b8?text=No+Image';
 
   return (

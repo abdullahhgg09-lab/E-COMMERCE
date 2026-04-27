@@ -46,7 +46,7 @@ const ProductDetail = () => {
   }
 
   const imageUrl = product.images && product.images.length > 0
-    ? `http://localhost:5000${product.images[selectedImage]}`
+    ? (product.images[selectedImage].startsWith('http') ? product.images[selectedImage] : `https://ecommerce-backend-ecru-two.vercel.app${product.images[selectedImage]}`)
     : 'https://placehold.co/600x600/1e293b/94a3b8?text=No+Image';
 
   return (
@@ -66,7 +66,7 @@ const ProductDetail = () => {
                   className={`thumbnail ${selectedImage === idx ? 'active' : ''}`}
                   onClick={() => setSelectedImage(idx)}
                 >
-                  <img src={`http://localhost:5000${img}`} alt={`${product.name} ${idx + 1}`} />
+                  <img src={img.startsWith('http') ? img : `https://ecommerce-backend-ecru-two.vercel.app${img}`} alt={`${product.name} ${idx + 1}`} />
                 </button>
               ))}
             </div>

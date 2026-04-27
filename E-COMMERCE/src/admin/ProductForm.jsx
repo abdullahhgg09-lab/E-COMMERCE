@@ -162,7 +162,7 @@ const ProductForm = () => {
               <div className="image-previews">
                 {existingImages.map((img, idx) => (
                   <div key={`existing-${idx}`} className="preview-item">
-                    <img src={`http://localhost:5000${img}`} alt={`Existing ${idx}`} />
+                    <img src={img.startsWith('http') ? img : `https://ecommerce-backend-ecru-two.vercel.app${img}`} alt={`Existing ${idx}`} />
                     <span className="existing-badge">Current</span>
                   </div>
                 ))}

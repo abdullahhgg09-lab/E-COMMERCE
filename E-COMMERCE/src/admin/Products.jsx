@@ -84,7 +84,7 @@ const Products = () => {
                   <tr key={product._id}>
                     <td>
                       <img
-                        src={product.images?.[0] ? `http://localhost:5000${product.images[0]}` : 'https://placehold.co/50x50/1e293b/94a3b8?text=N/A'}
+                        src={product.images?.[0] ? (product.images[0].startsWith('http') ? product.images[0] : `https://ecommerce-backend-ecru-two.vercel.app${product.images[0]}`) : 'https://placehold.co/50x50/1e293b/94a3b8?text=N/A'}
                         alt={product.name}
                         className="table-product-img"
                       />

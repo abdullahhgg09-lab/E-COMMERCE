@@ -19,7 +19,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'],
+  origin: true, // This allows all origins and is good for testing live
   credentials: true
 }));
 app.use(express.json());

@@ -46,6 +46,10 @@ const Navbar = () => {
         </form>
 
         <div className={`navbar-links ${menuOpen ? 'active' : ''}`}>
+          <div className="mobile-menu-header">
+            <span className="brand-text">Menu</span>
+            <button className="close-menu-btn" onClick={() => setMenuOpen(false)}><FiX /></button>
+          </div>
           <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
           <Link to="/shop" onClick={() => setMenuOpen(false)}>Shop</Link>
 
@@ -68,16 +72,18 @@ const Navbar = () => {
               <FiUser /> Login
             </Link>
           )}
+        </div>
 
-          <Link to="/cart" className="cart-link" onClick={() => setMenuOpen(false)}>
+        <div className="navbar-actions">
+          <Link to="/cart" className="cart-link-desktop">
             <FiShoppingCart />
             {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
           </Link>
+          
+          <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)} id="mobile-menu-toggle">
+            {menuOpen ? <FiX /> : <FiMenu />}
+          </button>
         </div>
-
-        <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)} id="mobile-menu-toggle">
-          {menuOpen ? <FiX /> : <FiMenu />}
-        </button>
       </div>
     </nav>
   );

@@ -1,12 +1,14 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
+import { useTheme } from '../context/ThemeContext';
 import { useState } from 'react';
-import { FiShoppingCart, FiUser, FiMenu, FiX, FiSearch, FiLogOut, FiGrid } from 'react-icons/fi';
+import { FiShoppingCart, FiUser, FiMenu, FiX, FiSearch, FiLogOut, FiGrid, FiSun, FiMoon } from 'react-icons/fi';
 
 const Navbar = () => {
   const { user, logout, isAdmin } = useAuth();
   const { cartCount } = useCart();
+  const { isDarkMode, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
@@ -75,6 +77,10 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-actions">
+          <button onClick={toggleTheme} className="theme-toggle-btn" title="Toggle Theme">
+            {isDarkMode ? <FiSun /> : <FiMoon />}
+          </button>
+
           <Link to="/cart" className="cart-link-desktop">
             <FiShoppingCart />
             {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}

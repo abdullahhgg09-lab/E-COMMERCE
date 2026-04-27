@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { ProtectedRoute, AdminRoute } from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -25,8 +26,9 @@ import Orders from './admin/Orders';
 function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <CartProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <CartProvider>
           <Toaster position="top-right" toastOptions={{
             style: { background: '#1e293b', color: '#f1f5f9', border: '1px solid #334155' }
           }} />
@@ -58,7 +60,8 @@ function App() {
           </Routes>
         </CartProvider>
       </AuthProvider>
-    </BrowserRouter>
+    </ThemeProvider>
+  </BrowserRouter>
   );
 }
 

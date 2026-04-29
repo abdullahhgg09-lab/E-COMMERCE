@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer" id="main-footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h3><span className="brand-icon">⚡</span> ShopHub</h3>
+          <h3><span className="brand-icon">⚡</span> USASHOP</h3>
           <p>Your one-stop destination for premium products. Quality meets affordability.</p>
         </div>
 
@@ -28,14 +28,14 @@ const Footer = () => {
 
         <div className="footer-section">
           <h4>Contact Us</h4>
-          <p><FiMail /> support@shophub.com</p>
+          <p><FiMail /> support@usashop.com</p>
           <p><FiPhone /> +1 (555) 123-4567</p>
           <p><FiMapPin /> 123 Commerce St, NY</p>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} ShopHub. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} USASHOP. All rights reserved.</p>
       </div>
     </footer>
   );

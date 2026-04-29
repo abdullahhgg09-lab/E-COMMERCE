@@ -2,7 +2,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { useTheme } from '../context/ThemeContext';
-import { useTheme } from '../context/ThemeContext';
 import { useState, useEffect } from 'react';
 import { FiShoppingCart, FiUser, FiMenu, FiX, FiSearch, FiLogOut, FiGrid, FiSun, FiMoon } from 'react-icons/fi';
 
@@ -43,7 +42,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
           <span className="brand-icon">⚡</span>
-          <span className="brand-text">ShopHub</span>
+          <span className="brand-text">USASHOP</span>
         </Link>
 
         <form className="navbar-search" onSubmit={handleSearch}>

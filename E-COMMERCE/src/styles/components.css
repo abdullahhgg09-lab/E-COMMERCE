@@ -4,15 +4,18 @@
   background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border); padding: 0 1.5rem;
 }
+.dark-theme .navbar {
+  background: rgba(30, 41, 59, 0.85);
+}
 .navbar-container {
-  max-width: 1280px; margin: 0 auto;
-  display: flex; align-items: center; gap: 1.5rem; height: 70px;
+  max-width: 1400px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; height: 75px;
 }
 .navbar-brand { display: flex; align-items: center; gap: 0.5rem; font-size: 1.4rem; font-weight: 800; white-space: nowrap; }
 .brand-icon { font-size: 1.5rem; }
 .brand-text { background: linear-gradient(135deg, var(--primary), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .navbar-search {
-  flex: 1; max-width: 480px; position: relative; display: flex; align-items: center;
+  flex: 1; max-width: 650px; position: relative; display: flex; align-items: center;
 }
 .navbar-search .search-icon { position: absolute; left: 12px; color: var(--text-muted); font-size: 1rem; }
 .navbar-search input {
@@ -22,7 +25,7 @@
   outline: none; transition: var(--transition);
 }
 .navbar-search input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
-.navbar-links { display: flex; align-items: center; gap: 0.5rem; margin-left: auto; }
+.navbar-links { display: flex; align-items: center; gap: 0.5rem; }
 .mobile-menu-header { display: none; }
 .navbar-actions { display: flex; align-items: center; gap: 0.5rem; }
 .theme-toggle-btn {
@@ -51,23 +54,29 @@
 }
 .mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; padding: 0.5rem; }
 
+@media (max-width: 1024px) {
+  .navbar-container { gap: 1rem; }
+  .navbar-search { max-width: 400px; }
+}
+
 @media (max-width: 768px) {
-  .navbar { padding: 0.75rem 1rem; }
-  .navbar-container { height: auto; flex-wrap: wrap; gap: 0.75rem; justify-content: space-between; }
+  .navbar { padding: 0.5rem 1rem; }
+  .navbar-container { height: auto; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between; }
   
   /* Keep brand and menu button on top row */
-  .navbar-brand { flex: 1; }
-  .mobile-menu-btn { display: block; margin-left: auto; }
+  .navbar-brand { flex: 0 1 auto; }
+  .navbar-actions { order: 2; margin-left: auto; }
+  .mobile-menu-btn { display: block; order: 3; }
   
   /* Search bar drops to second row and takes full width */
-  .navbar-search { display: flex; width: 100%; max-width: 100%; order: 3; margin-top: 0.5rem; }
+  .navbar-search { display: flex; width: 100%; max-width: 100%; order: 4; margin-top: 0.25rem; }
   
   /* Drawer menu */
   .navbar-links {
     position: fixed; top: 0; right: 0; height: 100vh; width: 85%; max-width: 320px;
     background: var(--bg-card); flex-direction: column;
     padding: 0; gap: 0; transform: translateX(100%);
-    transition: transform 0.3s ease-out;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: -10px 0 30px rgba(0,0,0,0.3);
     z-index: 9999; overflow-y: auto;
     visibility: hidden; display: flex;
@@ -79,7 +88,7 @@
     padding: 1.5rem; border-bottom: 1px solid var(--border);
     margin-bottom: 1rem; width: 100%;
   }
-  .close-menu-btn { background: none; border: none; font-size: 1.5rem; color: var(--text-primary); }
+  .close-menu-btn { background: none; border: none; font-size: 1.5rem; color: var(--text-primary); cursor: pointer; }
 
   .navbar-links a, .nav-logout-btn { 
     width: 100%; padding: 1.25rem 2rem; font-size: 1.1rem; 
@@ -88,13 +97,15 @@
     color: var(--text-primary);
   }
   
-  .navbar-actions { gap: 0.25rem; }
+  .navbar-actions { gap: 0.5rem; }
   .cart-link-desktop { padding: 0.5rem; }
+  .theme-toggle-btn { padding: 0.5rem; }
   
   /* Overlay for when menu is open */
-  .navbar-links.active::after {
+  .navbar-links.active::before {
     content: ''; position: fixed; top: 0; left: -100vw; width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: -1;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: -1;
+    transition: opacity 0.4s ease;
   }
 }
 

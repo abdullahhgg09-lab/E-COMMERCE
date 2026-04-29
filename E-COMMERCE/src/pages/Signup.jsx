@@ -46,7 +46,7 @@ const Signup = () => {
           <div className="auth-header">
             <span className="auth-icon"><FiUserPlus /></span>
             <h1>Create Account</h1>
-            <p>Join ShopHub and start shopping</p>
+            <p>Join USASHOP and start shopping</p>
           </div>
 
           <form onSubmit={handleSubmit} className="auth-form" id="signup-form">
